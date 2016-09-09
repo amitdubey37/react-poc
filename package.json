@@ -1,8 +1,7 @@
 {
-  "name": "s3-infrequent-access-calculator",
+  "name": "Simple user list",
   "version": "0.0.1",
   "private": true,
-  "homepage": "http://gulamshakir.com/apps/s3calc",
   "devDependencies": {
     "autoprefixer": "6.3.7",
     "babel-core": "6.11.4",

@@ -26,3 +26,16 @@
 .form-inline .input-group-addon.valuerow {
     width: 70px;
 }
+#deleteItem{
+  float: right;
+  color: red;!important
+}
+
+
+.bt:hover{
+  color: red;
+  font-size:17px;
+}
+.bt{
+  padding-left: 10px;
+}

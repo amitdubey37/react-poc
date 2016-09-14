@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import CartTotal from './CartTotal'
 // import { Label, DropdownButton, MenuItem, Form } from 'react-bootstrap'
 
 class App extends Component{
@@ -36,7 +37,8 @@ class App extends Component{
     console.log(item);
   }
 
-  handleSubmit(){
+  handleSubmit(e){
+    e.preventDefault();
     var newState =[]
     this.state.list.map(function(item){
       newState.push(item)
@@ -153,8 +155,10 @@ class App extends Component{
         </div>
         <div className='col-xs-3'></div>
       </div>
+      <CartTotal items={this.state.list}/>
 
-      </div>
+
+    </div>
     )
   }
 }

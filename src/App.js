@@ -32,6 +32,7 @@ class App extends Component{
      render() {
         return (
            <div>
+              <h1> Progress Bar</h1>
               <ProgressBar progress={this.state.progress}/>
               <button onClick={this.increment}> increase</button>
               <button onClick={this.decrease}> decrease</button>

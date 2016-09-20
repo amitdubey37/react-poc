@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import CartTotal from './CartTotal'
+import ProgressBar from './ProgressBar'
 // import { Label, DropdownButton, MenuItem, Form } from 'react-bootstrap'
 
 class App extends Component{
@@ -7,23 +7,30 @@ class App extends Component{
         super(props);
 
         this.state = {
-           data: 'Initial data...'
+           progress: 0
         }
 
-        this.updateState = this.updateState.bind(this);
-
+        this.increment = this.increment.bind(this);
+        this.reset = this.reset.bind(this);
      };
 
-     updateState(e) {
-        this.setState({data: e.target.value});
+      increment(e) {
+        var count = (this.state.progress) + (10)
+        if(count<=100){
+            this.setState({progress: count});
+        }
+
+     }
+
+     reset(e){
+       this.setState({progress:0});
      }
 
      render() {
         return (
            <div>
-              <input type = "text" value = {this.state.data}
-                 onChange = {this.updateState} />
-              <h4>{this.state.data}</h4>
+              <ProgressBar progress={this.state.progress}/>
+              <button onClick={this.increment}> increase</button>
            </div>
         );
      }

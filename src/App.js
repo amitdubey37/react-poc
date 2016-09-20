@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import ProgressBar from './ProgressBar'
+import PostList from './PostList'
 // import { Label, DropdownButton, MenuItem, Form } from 'react-bootstrap'
 
 class App extends Component{
@@ -7,36 +7,28 @@ class App extends Component{
         super(props);
 
         this.state = {
-           progress: 0
+           posts: []
         }
-
-        this.increment = this.increment.bind(this);
-        this.decrease = this.decrease.bind(this);
      };
 
-      increment(e) {
-        var count = (this.state.progress) + (10)
-        if(count<=100){
-            this.setState({progress: count});
-        }
-
+     componentDidMount(){
+       console.log('cl');
+       var _this = this;
+       $.ajax({
+         url: "http://jsonplaceholder.typicode.com/posts/",
+         success: function(result){
+           console.log(result);
+           _this.setState({posts:result})
+         }
+       });
      }
 
-     decrease(e){
-       var count = (this.state.progress) - (10)
-       if(count>=0){
-           this.setState({progress: count});
-       }
-     }
 
      render() {
         return (
            <div>
-              <h1> Progress Bar</h1>
-              <ProgressBar progress={this.state.progress}/>
-              <button onClick={this.increment}> increase</button>
-              <button onClick={this.decrease}> decrease</button>
-
+              <h1>Posts</h1>
+              <PostList posts={this.state.posts}/>
            </div>
         );
      }

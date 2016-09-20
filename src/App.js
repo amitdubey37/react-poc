@@ -11,7 +11,7 @@ class App extends Component{
         }
 
         this.increment = this.increment.bind(this);
-        this.reset = this.reset.bind(this);
+        this.decrease = this.decrease.bind(this);
      };
 
       increment(e) {
@@ -22,8 +22,11 @@ class App extends Component{
 
      }
 
-     reset(e){
-       this.setState({progress:0});
+     decrease(e){
+       var count = (this.state.progress) - (10)
+       if(count>=0){
+           this.setState({progress: count});
+       }
      }
 
      render() {
@@ -31,6 +34,8 @@ class App extends Component{
            <div>
               <ProgressBar progress={this.state.progress}/>
               <button onClick={this.increment}> increase</button>
+              <button onClick={this.decrease}> decrease</button>
+
            </div>
         );
      }

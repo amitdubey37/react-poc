@@ -47,3 +47,6 @@ body{
 #total-amount{
   float: right;
 }
+p.error{
+  color: red;
+}

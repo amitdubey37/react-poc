@@ -66,23 +66,6 @@ class App extends Component {
 
     }
 
-    handleClick(user) {
-        user.status === 'Active' ? (user.status = 'Disabled') : (user.status = 'Active');
-        var newState = [];
-
-        this.state.users.map(function (u) {
-            if (user.name !== u.name) {
-                newState.push(u);
-            }
-            else {
-                newState.push(user)
-            }
-        });
-        this.setState({
-            users: newState
-        })
-    }
-
     incrementQty(item) {
         var newList = this.state.list;
         var newState = [];
@@ -119,12 +102,10 @@ class App extends Component {
     }
 
     render() {
-        var hStyle = {
-            width: '200px'
-        };
+
         var items = this.state.list.map( (item, index) => {
             return (
-                    <ListItem item={item} deleteItem={this.deleteItem} decrementQty={this.decrementQty} incrementQty={this.incrementQty}/>
+                    <ListItem item={item} deleteItem={this.deleteItem} decrementQty={this.decrementQty} incrementQty={this.incrementQty} key={index}/>
             )
         });
         return (
@@ -133,7 +114,7 @@ class App extends Component {
                     <div className='col-xs-3'></div>
                     <div className="col-xs-6">
                         <h3>My Cart</h3>
-                        <AddItemForm item={this.state.item} onChange = {this.handleChange} onSubmit={this.handleSubmit}/>
+                        <AddItemForm item={this.state.item} onChange={this.handleChange} onSubmit={this.handleSubmit}/>
                         <p className="error">{this.state.error}</p>
                         <div className="list-group">
                             {items}

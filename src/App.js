@@ -132,7 +132,7 @@ class App extends Component {
                 <div className="row">
                     <div className='col-xs-3'></div>
                     <div className="col-xs-6">
-                        <h3>Listonic</h3>
+                        <h3>My Cart</h3>
                         <AddItemForm item={this.state.item} onChange = {this.handleChange} onSubmit={this.handleSubmit}/>
                         <p className="error">{this.state.error}</p>
                         <div className="list-group">

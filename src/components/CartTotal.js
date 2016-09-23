@@ -14,7 +14,7 @@ export default class CartTotal extends Component{
   componentWillReceiveProps(nextProp){
     var total = 0;
     nextProp.items.map(function(item){
-      total = total + (item.price*item.qty)
+      total += (item.price*item.qty)
     });
     this.setState({
       totalAmount:total

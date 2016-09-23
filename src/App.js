@@ -33,12 +33,10 @@ class App extends Component {
     deleteItem(item) {
         var newState = [];
         this.state.list.map(function (it) {
-            if (item.title === it.title) {
-
-            }
-            else {
+            if (item.title !== it.title) {
                 newState.push(it)
             }
+
         });
         this.setState({list: newState});
     }

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import CartTotal from './CartTotal'
-import ListItem from './ListItem'
-import AddItemForm from './AddItemForm'
+import CartTotal from '../components/CartTotal'
+import ListItem from '../components/ListItem'
+import AddItemForm from '../components/AddItemForm'
 // import { Label, DropdownButton, MenuItem, Form } from 'react-bootstrap'
 
 class App extends Component {
